@@ -1,9 +1,13 @@
 package org.basex.util;
 
-import java.text.*;
-import java.util.*;
+import org.basex.io.out.ArrayOutput;
 
-import org.basex.io.out.*;
+import java.nio.charset.Charset;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Locale;
 
 /**
  * <p>This class provides convenience operations for handling 'Tokens'.
@@ -214,7 +218,8 @@ public final class Token {
 
     // convert to utf8. if errors occur while converting, an empty is returned.
     try {
-      return token(new String(token, encoding));
+      Charset utf_8 = Charset.forName(Strings.UTF8);
+      return token(new String(token, utf_8));
     } catch(final Exception ex) {
       Util.debug(ex);
       return EMPTY;

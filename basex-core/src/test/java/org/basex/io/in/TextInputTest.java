@@ -1,12 +1,16 @@
 package org.basex.io.in;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
-import java.io.*;
+import org.basex.io.IO;
+import org.basex.util.Token;
+import org.basex.util.TokenBuilder;
 
-import org.basex.io.*;
-import org.basex.util.*;
-import org.junit.*;
+import java.io.IOException;
+import java.nio.charset.Charset;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for the {@link TextInput} method.
@@ -101,7 +105,10 @@ public final class TextInputTest {
    * @throws IOException I/O exception
    */
   private static void encoding(final String enc, final String input) throws IOException {
-    try(TextInput ti = new TextInput(input.getBytes(enc))) {
+
+    Charset charset = Charset.forName(enc);
+
+    try(TextInput ti = new TextInput(input.getBytes(charset))) {
       assertSame(ti.encoding(enc).content(), Token.token(input));
     }
   }
