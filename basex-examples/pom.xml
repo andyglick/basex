@@ -12,11 +12,24 @@
   </parent>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
+
     <dependency>
       <groupId>org.basex</groupId>
       <artifactId>basex-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>net.xqj</groupId>
+      <artifactId>basex-xqj</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.ccil.cowan.tagsoup</groupId>
       <artifactId>tagsoup</artifactId>
